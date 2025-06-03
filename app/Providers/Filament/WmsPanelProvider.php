@@ -28,7 +28,7 @@ class WmsPanelProvider extends PanelProvider
             ->id('wms')
             ->path('wms')
             ->login()
-            ->spa()
+            ->brandName('WMS')
             ->colors([
                 'primary' => Color::Emerald,
             ])
@@ -39,8 +39,7 @@ class WmsPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                //
             ])
             ->middleware([
                 EncryptCookies::class,
