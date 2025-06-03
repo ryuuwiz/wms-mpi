@@ -11,6 +11,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
+use Filament\Enums\ThemeMode;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -18,17 +19,26 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use Filament\Navigation\NavigationItem;
 
 class WmsPanelProvider extends PanelProvider
 {
+
     public function panel(Panel $panel): Panel
     {
         return $panel
             ->default()
+            // ->sidebarCollapsibleOnDesktop()
+            // ->topNavigation()
             ->id('wms')
             ->path('wms')
             ->login()
+            ->spa()
+            ->unsavedChangesAlerts()
             ->brandName('WMS')
+            ->font('Poppins')
+            ->databaseTransactions()
+            ->defaultThemeMode(ThemeMode::Light)
             ->colors([
                 'primary' => Color::Emerald,
             ])
@@ -73,5 +83,12 @@ class WmsPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+        // ->navigationItems([
+        //     NavigationItem::make('Analytics')
+        //         ->url('https://filament.pirsch.io', shouldOpenInNewTab: true)
+        //         ->icon('heroicon-o-presentation-chart-line')
+        //         ->group('Reports')
+        //         ->sort(3),
+        // ]);
     }
 }
