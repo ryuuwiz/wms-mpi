@@ -48,5 +48,8 @@ Mata Kuliah Manajemen Proyek Informatika
 - FrankenPHP
 
 ## Reference
-[Laravel](https://laravel.com/docs/12.x)
-[Filament Shield](https://filamentphp.com/plugins/bezhansalleh-shield#1-install-package)
+- [Laravel](https://laravel.com/docs/12.x)
+- [Filament](https://filamentphp.com/docs/3.x)
+- [Octane](https://laravel.com/docs/12.x/octane)
+- [Sail](https://laravel.com/docs/12.x/sail)
+- [Filament Shield](https://filamentphp.com/plugins/bezhansalleh-shield#1-install-package)
