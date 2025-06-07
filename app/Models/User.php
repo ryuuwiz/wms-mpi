@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function mutasiBarang()
+    {
+        return $this->hasMany(MutasiBarang::class, 'id_user');
+    }
 }
