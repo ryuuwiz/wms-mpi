@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mutasi_barang', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
-            $table->foreignId('id_barang')->constrained('barangs')->onDelete('cascade');
+            $table->foreignId('id_barang')->constrained('barang')->onDelete('cascade');
             $table->enum('jenis_barang', ['masuk', 'keluar']);
             $table->integer('jumlah');
             $table->string('keterangan')->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mutasi_barangs');
+        Schema::dropIfExists('mutasi_barang');
     }
 };

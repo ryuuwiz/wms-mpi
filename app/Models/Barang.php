@@ -10,6 +10,8 @@ class Barang extends Model
 {
     use HasFactory;
 
+    protected $table = 'barang';
+
     protected $fillable = ['nama', 'kondisi', 'jumlah'];
 
     protected $casts = [
