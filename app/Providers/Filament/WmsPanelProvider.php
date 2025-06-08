@@ -19,7 +19,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
-use Filament\Navigation\NavigationItem;
+use App\Filament\Widgets\MutasiBarangStatsWidget;
+use App\Filament\Widgets\RecentMutasiBarangWidget;
 
 class WmsPanelProvider extends PanelProvider
 {
@@ -28,19 +29,16 @@ class WmsPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            // ->sidebarCollapsibleOnDesktop()
-            // ->topNavigation()
             ->brandName('WMS')
             ->id('wms')
             ->path('wms')
             ->login()
-            ->spa()
             ->unsavedChangesAlerts()
             ->font('Poppins')
             ->databaseTransactions()
             ->defaultThemeMode(ThemeMode::Light)
             ->colors([
-                'primary' => Color::Emerald,
+                'primary' => Color::Amber,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -49,7 +47,8 @@ class WmsPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                //
+                MutasiBarangStatsWidget::class,
+                RecentMutasiBarangWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -68,12 +67,5 @@ class WmsPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
-        // ->navigationItems([
-        //     NavigationItem::make('Analytics')
-        //         ->url('https://filament.pirsch.io', shouldOpenInNewTab: true)
-        //         ->icon('heroicon-o-presentation-chart-line')
-        //         ->group('Reports')
-        //         ->sort(3),
-        // ]);
     }
 }

@@ -85,13 +85,13 @@ class BarangResource extends Resource
                 Tables\Columns\TextColumn::make('kondisi')
                     ->label('Kondisi')
                     ->badge()
-                    ->color(fn (KondisiBarang $state): string => match ($state) {
+                    ->color(fn(KondisiBarang $state): string => match ($state) {
                         KondisiBarang::BAIK => 'primary',
                         KondisiBarang::RUSAK => 'danger',
-                        KondisiBarang::BARU => 'success',
+                        KondisiBarang::BARU => 'info',
                         default => 'gray',
                     })
-                    ->formatStateUsing(fn (KondisiBarang $state): string => match ($state) {
+                    ->formatStateUsing(fn(KondisiBarang $state): string => match ($state) {
                         KondisiBarang::BAIK => 'Baik',
                         KondisiBarang::RUSAK => 'Rusak',
                         KondisiBarang::BARU => 'Baru',
@@ -153,13 +153,13 @@ class BarangResource extends Resource
                         Infolists\Components\TextEntry::make('kondisi')
                             ->label('Kondisi')
                             ->badge()
-                            ->color(fn (KondisiBarang $state): string => match ($state) {
+                            ->color(fn(KondisiBarang $state): string => match ($state) {
                                 KondisiBarang::BARU => 'success',
                                 KondisiBarang::BAIK => 'primary',
                                 KondisiBarang::RUSAK => 'danger',
                                 default => 'gray',
                             })
-                            ->formatStateUsing(fn (KondisiBarang $state): string => match ($state) {
+                            ->formatStateUsing(fn(KondisiBarang $state): string => match ($state) {
                                 KondisiBarang::BARU => 'Baru',
                                 KondisiBarang::BAIK => 'Baik',
                                 KondisiBarang::RUSAK => 'Rusak',
