@@ -20,6 +20,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use App\Filament\Widgets\MutasiBarangStatsWidget;
 use App\Filament\Widgets\RecentMutasiBarangWidget;
+use Filament\FontProviders\GoogleFontProvider;
 
 class WmsPanelProvider extends PanelProvider
 {
@@ -34,11 +35,16 @@ class WmsPanelProvider extends PanelProvider
             ->path('wms')
             ->login()
             ->unsavedChangesAlerts()
-            ->font('Poppins')
+            ->font('Inter', provider: GoogleFontProvider::class)
             ->databaseTransactions()
             ->defaultThemeMode(ThemeMode::Light)
             ->colors([
-                'primary' => Color::Amber,
+                'danger' => Color::Rose,
+                'gray' => Color::Gray,
+                'info' => Color::Blue,
+                'primary' => Color::Violet,
+                'success' => Color::Emerald,
+                'warning' => Color::Orange,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
