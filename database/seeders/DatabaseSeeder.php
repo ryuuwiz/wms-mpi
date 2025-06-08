@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             BarangSeeder::class,
+            MutasiBarangSeeder::class,
         ]);
     }
 }
