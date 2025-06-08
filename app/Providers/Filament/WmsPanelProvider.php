@@ -29,6 +29,7 @@ class WmsPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->brandName('WMS')
+            ->sidebarCollapsibleOnDesktop()
             ->id('wms')
             ->path('wms')
             ->login()
