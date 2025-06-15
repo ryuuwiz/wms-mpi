@@ -48,7 +48,6 @@ class BarangResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->placeholder('Masukkan nama barang'),
-
                         Forms\Components\Select::make('kondisi')
                             ->label('Kondisi Barang')
                             ->options([
@@ -59,7 +58,6 @@ class BarangResource extends Resource
                             ->required()
                             ->native(false)
                             ->placeholder('Pilih kondisi barang'),
-
                         Forms\Components\TextInput::make('jumlah')
                             ->label('Jumlah')
                             ->required()

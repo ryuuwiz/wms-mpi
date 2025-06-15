@@ -24,7 +24,6 @@ use Filament\FontProviders\GoogleFontProvider;
 
 class WmsPanelProvider extends PanelProvider
 {
-
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -32,7 +31,8 @@ class WmsPanelProvider extends PanelProvider
             ->brandName('WMS')
             ->sidebarCollapsibleOnDesktop()
             ->id('wms')
-            ->path('wms')
+            ->path('')
+            ->spa()
             ->login()
             ->unsavedChangesAlerts()
             ->font('Inter', provider: GoogleFontProvider::class)

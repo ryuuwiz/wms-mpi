@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,21 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@example.com',
-        // ]);
-
-        // User::factory()->create([
-        //     'name' => 'Owner',
-        //     'email' => 'owner@example.com',
-        // ]);
-
         $this->call([
+            RolesAndPermissionsSeeder::class,
             BarangSeeder::class,
             MutasiBarangSeeder::class,
         ]);
+        Artisan::call('shield:install wms');
     }
 }

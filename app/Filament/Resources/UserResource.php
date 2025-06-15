@@ -30,7 +30,9 @@ class UserResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required(),
+                    ->required()
+                    ->maxLength(255)
+                    ->minLength(2),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required(),
@@ -38,12 +40,11 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
-                    ->dehydrateStateUsing(fn ($state) => $state ? bcrypt($state) : null)
-                    ->dehydrated(fn ($state) => filled($state))
-                    ->required(fn (string $context): bool => $context === 'create'),
+                    ->dehydrateStateUsing(fn($state) => $state ? bcrypt($state) : null)
+                    ->dehydrated(fn($state) => filled($state))
+                    ->required(fn(string $context): bool => $context === 'create'),
                 Forms\Components\Select::make('roles')
                     ->relationship('roles', 'name')
-                    ->multiple()
                     ->preload()
                     ->searchable(),
             ]);
