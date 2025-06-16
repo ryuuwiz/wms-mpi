@@ -1,0 +1,10 @@
+_HiStOrY_V2_
+use\040Illuminate\134Support\134Facades\134Mail;
+Mail::raw('Tes\040kirim\040email\040ke\040Mailpit\040dari\040Sail',\040function\040($message)\040{\012\040\040\040\040$message->to('test@example.com')->subject('Tes\040Mailpit');\012});
+exit
+Redis::set('test',\040'OK');
+Redis::set('test',\040'OK');
+Redis::set('test',\040"OK");
+Redis::set("test",\040"OK");
+Redis::get('test');
+exit

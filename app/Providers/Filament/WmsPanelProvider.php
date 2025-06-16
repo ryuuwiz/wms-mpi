@@ -34,6 +34,8 @@ class WmsPanelProvider extends PanelProvider
             ->path('')
             ->spa()
             ->login()
+            ->registration()
+            ->passwordReset()
             ->unsavedChangesAlerts()
             ->font('Inter', provider: GoogleFontProvider::class)
             ->databaseTransactions()
