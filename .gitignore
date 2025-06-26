@@ -25,6 +25,10 @@ npm-debug.log
 Thumbs.db
 yarn-error.log
 
+package-lock.json
+composer.lock
+bun.lock
+
 **/caddy
 frankenphp
 frankenphp-worker.php
